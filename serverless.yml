@@ -15,7 +15,9 @@
 service: container-image-demo
 provider:
   name: aws
-  deploymentBucket: ${ssm:demo-pipeline-s3-bucket-name}
+  deploymentBucket: 
+    name: ${ssm:demo-pipeline-s3-bucket-name}
+    serverSideEncryption: AES256
   lambdaHashingVersion: 20201221
 functions:
   app:

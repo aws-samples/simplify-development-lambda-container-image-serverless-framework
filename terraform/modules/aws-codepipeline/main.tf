@@ -91,7 +91,7 @@ resource "aws_codebuild_project" "container_code_build_project" {
             "docker tag $ECRREPONAME:latest $ACCOUNTID.dkr.ecr.us-east-1.amazonaws.com/$ECRREPONAME:$IMAGEVERISON",
             "docker push $ECRNAME:$IMAGEVERISON",
             "npm install -g serverless",
-            "sls deploy -v"
+            "sls deploy"
           ]
         }
       }
