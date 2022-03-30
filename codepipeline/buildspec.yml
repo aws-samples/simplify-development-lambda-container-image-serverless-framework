@@ -1,0 +1,11 @@
+version: 0.2
+phases:
+  build:
+    commands:
+      - IMAGEVERISON=$(<codepipeline/version.txt)
+      - sh codepipeline/version.sh
+      - echo $IMAGEVERISON
+      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin $ACCOUNTID
+      - docker build $AppPath/ -t demo-java
+      - docker tag demo-java:latest $ACCOUNTID.dkr.ecr.$AWS_REGION.amazonaws.com/demo-java:${IMAGEVERISON}
+      - docker push $ACCOUNTID.dkr.ecr.us-east-1.amazonaws.com/demo-java:${IMAGEVERISON}

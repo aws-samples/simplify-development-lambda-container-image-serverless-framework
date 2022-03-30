@@ -1,17 +1,59 @@
-## My Project
+# deploy-lambda-containers-with-terraform
 
-TODO: Fill this README out!
+## Usage
 
-Be sure to:
+### To update MakeFile
+Run command
+```shell
+make
+```
 
-* Change the title in this README
-* Edit your repository description on GitHub
+### Check if Terraform is installed
+Run command
+```shell
+make local
+```
 
-## Security
+### To setup and preview resources with Terraform
+Run command
+```shell
+make plan
+```
 
-See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more information.
+### To build resource or update with Terraform
+Run command
+```shell
+make apply
+```
 
-## License
+### To delete all resource with Terraform
+Run command
+```shell
+make destroy
+```
 
-This library is licensed under the MIT-0 License. See the LICENSE file.
+### To delete Terraform generated files in local directory
+Run command
+```shell
+make clean
+```
 
+### After the user clones a copy of the public code
+> This command copies and compresses the required code to a location the **git-private** has access. 
+Run command
+```shell
+make git-public
+```
+
+### Setup the private CodeCommit respository with a first commit 
+Run command
+```shell
+make git-private
+```
+
+### Uploads the code to invoke a build in the CodePipeline 
+> This command extracts the required code into the CodeCommit **private** respository. 
+Run command
+```shell
+make upload
+```
